@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+ <html>
+      <!--Техническая информация о документе-->
+      <head>
+      <!--Задаем заголовок документа-->
+      <title>
+      Регистрация на конференции 
+      </title>   
+      <!--Определяем кодировку символов документа--> 
+     <meta charset="UTF-8">
+     <!--Информация для поисковых машин-->
+     <meta name="description" content="Описание содержимого страницы">
+     <meta name="keywords" content="Ключевые слова через запятую">
+     <!--область просмотра в адаптивном дизайне-->
+     <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+     <!--Подключаем внешнюю таблицу стилей-->
+
+
+     <!--Подключаем сценарий-->
+     <script src="script.js"></script>
+    </head>
+    <body> 
+        <form action="insert.php" method="post"></form>
+        <style> body { background: url(../CSS/bg.jpg) no-repeat center;
+         background-size:1500px auto; } </style>
+        <div align=" center "><h1>Регистрация на конференции</h1>
+        </div>
+        
+     <!--шапка документа-->
+     <header>
+     </header>
+     <!--основное содержание-->
+     <main>
+         
+        
+
+<form action=""> 
+    <div>
+    <label for="user_name">Ф.И.О.</label>
+<input type="text" name="user_name" id="user_name" required placeholder="Ф.И.О." 
+pattern="[А-Я][а-я]+[ ][А-Я][а-я]+[ ][А-Я][а-я]+[ ]*"
+size="20"> 
+
+</div>
+<div>
+     <label for="tel">Контактный телефон</label>
+     <input type="tel" name="user_name" id="tel" maxlength="11" value="+7"   pattern="[+][0-9]"> 
+    </div>
+<div>
+    <label for="email">Адрес электронной почты</label>
+<input type="email" name="email" id="email"> 
+</div>
+</div>
+<div>
+    <label for="date">Дата рождения</label>
+<input type="date" name="user_name" id="date" > 
+</div>
+<div>
+    <label for="section">Выберите секцию конференции</label><br>
+    <select name="section" id="section">
+<option value="mat">математика</option>
+<option value="fiz">физика</option>
+<option value="inf">информатика</option>
+    </select>
+</div>
+<div>
+    <label for="speaker">Участие с докладом</label> 
+    <input type="checkbox" name="speaker" id="speaker">  
+</div>
+<div>
+    <label for="report">Введите тему Вашего доклада</label> <br>
+    <textarea name="report" id="report" cols="30" rows="3"></textarea>
+</div>
+ <div>
+     <div>
+         <div>Выберите форму участия</div>
+         <input type="radio" checked value="Оная"name="edutype" id="offline"> <label for="offline">Очная форма</label><br>
+         <input type="radio"name="edutype" id="onlain"> <label for="onlain">Дистанционная форма</label><br>
+         <input type="radio"name="edutype" id="online_offline"> <label for="online_offline">Смешанная форма</label>
+     </div>
+     <input type="submit" style="background-color: cadetblue;"  value="Зарегистрироваться"> 
+ </div>
+</form>
+     </main>
+     
+      
+     <!--подвал сайта-->
+<footer>
+    
+</footer>
+ </body>
+ </html>
+ 
+ <!--
+     <?php
+Попытка подключения к серверу MySQL. Предполагая, что вы используете MySQL
+ сервер с настройкой по умолчанию (пользователь root без пароля)
+try{
+    $pdo = new PDO("mysql:host=localhost;dbname=demo", "root", "");
+    // Set the PDO error mode to exception
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch(PDOException $e){
+    die("Ошибка подключения. " . $e->getMessage());
+}
+ 
+// Попытка выполнения запроса вставки
+try{
+    // Создать подготовленную выписку
+    $sql = "INSERT INTO persons (user_name, tel, email, date) VALUES (:user_name, :tel, :email, :date)";
+    $stmt = $pdo->prepare($sql);
+    
+    // Привязать параметры к оператору
+    $stmt->bindParam(':user_name', $_REQUEST['user_name']);
+    $stmt->bindParam(':tel', $_REQUEST['tel']);
+    $stmt->bindParam(':email', $_REQUEST['email']);
+    $stmt->bindParam(':date', $_REQUEST['date']);
+    // Выполнить подготовленный оператор
+    $stmt->execute();
+    echo "Записи успешно вставлены.";
+} catch(PDOException $e){
+    die("Ошибка вставки $sql. " . $e->getMessage());
+}
+ 
+// Закрыть соединение
+unset($pdo);
+?>-->
